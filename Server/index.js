@@ -17,7 +17,10 @@ let vjmServer = vjm.Server({
 
 app.use(express.static("../client"));
 
+app.post("/auth/register", vjmServer.registerHandler);
+app.post("/auth/login", vjmServer.loginHandler);
+
 Mclient.connect(url, function(err, client){
 	database = client.db(dbName);
-	app.listen(8080);
+	app.listen(5000);
 })
